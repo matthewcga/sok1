@@ -21,9 +21,7 @@ int main(int argc, char *argv[])
 
     pid_t pid;
 
-    // *********************************************************
     // rodzic ma przekazac dziecku wartosc i ma otrzymac jej kwadrat
-    // *********************************************************
 
     if ((pid = fork()) == 0)
     {
