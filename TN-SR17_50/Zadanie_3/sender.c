@@ -6,17 +6,27 @@
 
 #define PIPE "./squareFIFO"
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[])
+{
 
- if(argc !=2){
-   printf("Not a suitable number of program parameters\n");
-   return(1);
- } 
+  if (argc != 2)
+  {
+    printf("Not a suitable number of program parameters\n");
+    return (1);
+  }
 
-  //utworz potok nazwany pod sciezka reprezentowana przez PIPE
-  //zakladajac ze parametrem wywolania programu jest liczba calkowita
-  //zapisz te wartosc jako int do potoku i posprzataj
+  // utworz potok nazwany pod sciezka reprezentowana przez PIPE
+  // zakladajac ze parametrem wywolania programu jest liczba calkowita
+  // zapisz te wartosc jako int do potoku i posprzataj
 
+  int num = argv[1];
 
-    return 0;
+  FILE *pipe_ptr = fopen(PIPE, "w");
+  if (pipe_ptr == NULL)
+    exit(EXIT_FAILURE);
+
+  fwrite(num, strlen(num), sizeof(char), pipe_ptr);
+  fflush(pipe_ptr);
+
+  return 0;
 }
