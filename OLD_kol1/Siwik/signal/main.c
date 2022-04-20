@@ -30,12 +30,11 @@ int main(int argc, char *argv[])
         // zdefiniuj obsluge SIGUSR1 w taki sposob zeby proces potomny wydrukowal
         // na konsole przekazana przez rodzica wraz z sygnalem SIGUSR1 wartosc
 
-        // dziala bez maski ???
         sigset_t mask;
-        sigfillset(&mask);
-        sigdelset(&mask, SIGUSR1);
-        sigdelset(&mask, SIGRTMIN + 1);
-        sigprocmask(SIG_SETMASK, &mask, NULL);
+        sigfillset(&mask);                     // maska na wszystko
+        sigdelset(&mask, SIGUSR1);             // exclude
+        sigdelset(&mask, SIGRTMIN + 1);        // exclude
+        sigprocmask(SIG_SETMASK, &mask, NULL); // naloz maske
     }
     else
     {
