@@ -12,4 +12,5 @@ test:  main
 	./main 7
 	./main 100 | wc -l
 	./main 200 | wc -l
+
 all: main test
