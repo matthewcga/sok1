@@ -3,6 +3,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 
 /*
@@ -13,9 +14,11 @@
  *    wynik w argumencie 'result'.
  */
 void read_end(char *file_name, char *result){
-    // Uzupelnij cialo funkcji read_end zgodnie z
-    // komentarzem powyzej
-
+    int File = open(file_name, O_RDONLY);
+    if (lseek(File, -8, SEEK_END) == -1) {
+        exit(1);
+    }
+    read(File, result, 8);
 }
 
 
