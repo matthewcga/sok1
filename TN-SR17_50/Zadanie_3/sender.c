@@ -3,6 +3,7 @@
 #include <sys/stat.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 
 #define PIPE "./squareFIFO"
 
@@ -19,7 +20,7 @@ int main(int argc, char *argv[])
   // zakladajac ze parametrem wywolania programu jest liczba calkowita
   // zapisz te wartosc jako int do potoku i posprzataj
 
-  int num = argv[1];
+  char* num = argv[1];
 
   FILE *pipe_ptr = fopen(PIPE, "w");
   if (pipe_ptr == NULL)
