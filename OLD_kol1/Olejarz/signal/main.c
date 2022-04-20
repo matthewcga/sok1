@@ -22,6 +22,8 @@ int main()
     else
     {
         /*
+        PODOBNE ALE INNE !!!
+
         1. Proces macierzysty pobiera status zakończenie potomka child, nie zawieszając swojej pracy.
 
         2. Jeśli proces się nie zakończył, wysyła do dziecka sygnał SIGKILL.
