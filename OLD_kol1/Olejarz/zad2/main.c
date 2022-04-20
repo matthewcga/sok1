@@ -40,13 +40,13 @@ int main()
 
             if (kill(child, SIGKILL) == 0) // 3.
             {
-                status = waitpid(child, &status, NULL);
+                waitpid(child, &status, NULL);
                 printf("sucessfully killed a child\npid: %d\tstatus: %d\n", child, status);
             }
-            else // 4.
+            else // 4. // faktycznie zadziałą dla `if (0)`
             {
                 printf("killing a child was unsucessfull\nawaiting...\n");
-                status = waitpid(child, &status, NULL);
+                waitpid(child, &status, NULL);
                 printf("child process ended\npid: %d\tstatus: %d\n", child, status);
             }
         }
