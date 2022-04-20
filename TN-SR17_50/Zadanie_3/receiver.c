@@ -14,8 +14,6 @@ int main()
      * posprzataj
      ************************************/
 
-    char *val_str;
-
     FILE *fifo = fopen(PIPE, "r");
     if (fifo == NULL)
         exit(EXIT_FAILURE);
@@ -24,8 +22,12 @@ int main()
     while (fgets(buf, _SC_LINE_MAX, fifo) != NULL)
     {   
         val = atoi(buf);
+        // printf("val: %d", val);
     }
+    fflush(fifo);
+    fclose(fifo);
 
     printf("%d square is: %d\n", val, val * val);
+    // remove(PIPE);
     return 0;
 }

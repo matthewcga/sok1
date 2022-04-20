@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
 
   fwrite(num, strlen(num), sizeof(char), pipe_ptr);
   fflush(pipe_ptr);
+  fclose(pipe_ptr);
 
   return 0;
 }
