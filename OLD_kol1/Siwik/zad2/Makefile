@@ -13,7 +13,4 @@ test: main
 	./main 0
 	./main cos
 
-qwe: main
-	./main 3
-
 all: main test

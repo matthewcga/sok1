@@ -23,9 +23,8 @@ int main(int argc, char *argv[])
 
    if ((pid = fork()) == 0)
    {
-      close(toParentFD[1]);
-      read(toParentFD[0], &val2, sizeof(int));
-      printf("val: %d\n", val2);
+      close(toChildFD[1]);
+      read(toChildFD[0], &val2, sizeof(int));
 
       val2 = val2 * val2;
 
@@ -41,8 +40,8 @@ int main(int argc, char *argv[])
 
       sleep(1);
 
-      close(toChildFD[1]);
-      read(toChildFD[0], &val3, sizeof(int));
+      close(toParentFD[1]);
+      read(toParentFD[0], &val3, sizeof(int));
 
       printf("%d square is: %d\n", val1, val3);
    }
