@@ -19,6 +19,7 @@ void read_end(char *file_name, char *result){
         exit(1);
     }
     read(File, result, 8);
+    close(File);
 }
 
 
