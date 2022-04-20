@@ -3,6 +3,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 /*
  * Funkcja 'read_end' powinna:
@@ -11,6 +12,7 @@
  *  - przeczytac ostatnie 8 bajtow tego pliku i zapisac
  *    wynik w argumencie 'result'.
  */
+<<<<<<< HEAD
 
 void read_end(char *file_name, char *result)
 {
@@ -18,6 +20,15 @@ void read_end(char *file_name, char *result)
     lseek(fd, 8, SEEK_END);
     read(fd, result, sizeof(char) * 8);
     return result;
+=======
+void read_end(char *file_name, char *result){
+    int File = open(file_name, O_RDONLY);
+    if (lseek(File, -8, SEEK_END) == -1) {
+        exit(1);
+    }
+    read(File, result, 8);
+    close(File);
+>>>>>>> 0a8d26f1a8e8ee8aa7d0386a7d4c89b05fb42600
 }
 
 int main(int argc, char *argv[])
