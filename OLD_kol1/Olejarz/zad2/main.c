@@ -31,7 +31,6 @@ int main()
 
         4. Jeśli wysłanie sygnału się nie powiodło, ponownie oczekuje na zakończenie procesu child,
         tym razem zawieszając pracę do czasu zakończenia sygnału
-
         */
 
         retval = waitpid(child, &status, WNOHANG); // 1.
